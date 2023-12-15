@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{svelte,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'veryDarkGrey': '#20212c',
+        'darkGrey': '#2b2c37',
+        'mainPurple': '#635fc7'
+      }
+    },
   },
   plugins: [],
 }
