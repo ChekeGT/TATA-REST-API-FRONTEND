@@ -1,5 +1,6 @@
 <script>
-    import PopUpContainer from "./PopUps/PopUpContainer.svelte";
+    import AddTaskPopUp from "./PopUps/AddTaskPopUp.svelte";
+import PopUpContainer from "./PopUps/PopUpContainer.svelte";
 
     let showAddPopup = false;
     function toggleShowAddPopUpVisibility(){
@@ -11,6 +12,7 @@
     <button on:click={toggleShowAddPopUpVisibility} class="text-white bg-mainPurple p-4 rounded-3xl">+Add New Task</button>
     {#if showAddPopup}
         <PopUpContainer autoDestructionFunction={toggleShowAddPopUpVisibility}>
+            <AddTaskPopUp/>
         </PopUpContainer>
     {/if}
 </nav>
