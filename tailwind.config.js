@@ -9,7 +9,8 @@ export default {
       colors: {
         'veryDarkGrey': '#20212c',
         'darkGrey': '#2b2c37',
-        'mainPurple': '#635fc7'
+        'mainPurple': '#635fc7',
+        'mediumGrey': '#828fa3'
       }
     },
   },
