@@ -4,7 +4,6 @@ export const tasks = writable()
 
 export async function getAllTasks(){
     const URL = API_URL + "getAllTasks"
-    console.log(URL)
     try {
         const response = await fetch(URL);
         
@@ -17,6 +16,23 @@ export async function getAllTasks(){
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
-}    
+}
+
+export async function createNewTask(title, description, completed){
+  const URL = API_URL + "create"
+  try{
+    const response = await fetch(URL, {
+      method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+          // Add any other headers if needed
+        },
+        body: JSON.stringify({title: title, description: description, completed: completed})
+    })
+    getAllTasks()
+  }catch (err){
+    console.error('Error creating new task:', err.message)
+  }
+}
 
 

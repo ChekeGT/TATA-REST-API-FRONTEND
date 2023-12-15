@@ -1,12 +1,17 @@
 <script>
+    import { getContext } from "svelte";
+    import { createNewTask } from "../store";
     let completed = false;
     let description = '';
-    let title = ''; 
+    let title = '';
+    let autoDestructionFunction = getContext("autoDestruction")
     function preventPropagation(e){
         e.stopPropagation();
     }
     function handleSubmit(e){
         e.preventDefault()
+        createNewTask(title, description, completed)
+        autoDestructionFunction()
     }
 </script>
 
@@ -19,7 +24,7 @@
         <textarea bind:value={description} name="task-name" class="bg-darkGrey w-full p-2 rounded-md border border-gray resize-none"/>
         <div class="flex gap-2 items-center">
             <h3 class="">Completed</h3>
-            <input type="checkbox" bind:value={completed}/>
+            <input type="checkbox" bind:checked={completed}/>
         </div>
         <button type="submit" class="bg-mainPurple p-2 rounded-full text-white font-semibold">Add New Task.</button>
     </div>
